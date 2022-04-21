@@ -45,3 +45,6 @@ try:
         time.sleep(15)
 except KeyboardInterrupt:
     server.quit()
+
+
+#lol lets hope this works
