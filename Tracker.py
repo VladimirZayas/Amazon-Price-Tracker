@@ -1,5 +1,5 @@
-from bs4 import BeautifulSoup
 import requests
+from bs4 import BeautifulSoup
 import smtplib
 import time
 import html5lib
@@ -14,7 +14,8 @@ server = smtplib.SMTP('smtp.gmail.com', 587)
 server.ehlo()
 server.starttls()
 server.ehlo()
-server.login(input("Enter your email"), input("Enter Email password"))
+server.login('trackeramzn@gmail.com', 'Shared83617')
+user_email = input("Enter your email: ")
 
 def check_price(URL,Price):
     page = requests.get(URL, headers=headers)
@@ -37,7 +38,7 @@ def send_mail(server):
     subject = 'Price has dropped!'
     body = 'Check the amazon link below to see your deal!', URL
     msg = f"Subject: {subject}\n\n{body}"
-    server.sendmail('TrackerAMZN@gmail.com','TrackerAMZN@gmail.com',msg)
+    server.sendmail('TrackerAMZN@gmail.com',user_email,msg)
     print('MESSAGE HAS BEEN SENT')
 try:    
     while(True):    
@@ -45,6 +46,3 @@ try:
         time.sleep(15)
 except KeyboardInterrupt:
     server.quit()
-
-
-#lol lets hope this works
